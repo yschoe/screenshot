@@ -32,6 +32,8 @@ from datetime import datetime
 # main algorithm
 #----------------------------------------
 
+print("Screenshot:\n  press [PrtScr] to save screenshot. Press [F1] to terminate program")
+
 def on_press(key):
 
     if key == Key.print_screen:
@@ -40,12 +42,14 @@ def on_press(key):
         now = datetime.now()
         timestamp = now.strftime("%Y-%m-%d--%H-%M-%S")
         fname = path+prefix+"-"+timestamp+".png"
-        print("** Printscreen pressed!. Saving: "+fname)
+        print("** Printscreen pressed!. Saving: "+fname, flush=True)
         myScreenshot = pyautogui.screenshot(fname)
 
 def on_release(key):
 
-    if key == Key.esc:
+    # print('KEY',key)
+    # Key.alt_l , 'x' 
+    if key == Key.f1:
 
         return False
 
